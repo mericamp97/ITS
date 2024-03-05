@@ -33,7 +33,14 @@
         <input type="radio" name="transport" value="smrt"> SMRT
       </label>
     </div>
+    <div class="spacing"></div>
     <button onclick="populateTrips()">Populate my trips</button>
+    <div class="spacing"></div>
+    <div id="trip-status" class="trip-status">
+        <img id="status-icon" src="icon_danger.png" alt="Status Icon" style="display: none; width: 20px; height: 20px;">
+        <span id="status-text" style="display: none;">0 late arrivals</span>
+      </div>      
+    <div class="spacing"></div>
     <div id="error"></div>
     <div class="spacing"></div> <!-- Adds spacing between button and calendar -->
 

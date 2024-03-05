@@ -14,6 +14,7 @@ function uploadCalendar() {
   }
   
   function populateTrips() {
-    // Logic to populate trips will go here
+    document.getElementById('status-icon').style.display = 'inline';
+    document.getElementById('status-text').style.display = 'inline';
   }
 

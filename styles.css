@@ -98,4 +98,14 @@ body, html {
   width: 500px;
 }
 
-/* ... */
+.trip-status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px; /* Or any appropriate value */
+  color: grey;
+}
+
+.trip-status img {
+  margin-right: 5px; /* Space between icon and text */
+}
