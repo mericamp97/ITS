@@ -1,3 +1,5 @@
+# Intelligent travel time scheduler for busy salespeople (ITS)
+
 Our website streamlines travel planning for salespeople by enabling automatic travel itinerary creation between meetings. Users simply import their calendar in popular formats, such as ICS, and select their preferred transportation mode with a single click. The system then calculates travel times, schedules necessary travel entries including departure and arrival times and alerts users if they will arrive late to certain meetings. The updated calendar, exportable in ICS format, seamlessly integrates back into users' preferred calendar applications such as Google Calendar. 
 
 The main features of ITS are the following:
