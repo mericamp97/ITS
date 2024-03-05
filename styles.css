@@ -93,9 +93,9 @@ body, html {
 }
 
 .day-cell {
-  border-top: 1px solid #ddd; /* subtle border for the slots */
-  min-height: 40px; /* Match this to the .time-slot height */
-  width: 500px;
+  border: 1px solid #7a5a83; /* subtle border for the slots */
+  min-height: 48px; /* Match this to the .time-slot height */
+  min-width: 100px;
 }
 
 .trip-status {
