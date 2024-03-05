@@ -1,0 +1,101 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .container {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .desktop {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  header h1 {
+    color: #5E2A84; /* Or the color from your design */
+  }
+  
+  input[type="file"] {
+    margin: 20px 0;
+  }
+  
+  button {
+    background-color: #5E2A84; /* Or the color from your design */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    border-radius: 8px;
+  }
+  
+  button:hover {
+    opacity: 0.8;
+  }
+  
+  .transportation-method label {
+    margin-right: 10px;
+  }
+  
+  .transportation-method input {
+    margin-right: 5px;
+  }
+  
+  #error {
+    color: red;
+  }
+
+/* ... */
+
+.spacing {
+  margin-top: 20px; /* Adjust the space as needed */
+}
+
+.calendar-container {
+  display: grid;
+  grid-template-columns: 50px auto; /* Adjust the width of the time column as needed */
+  max-width: 100%;
+  gap: 10px;
+}
+
+.calendar-times {
+  display: flex;
+  flex-direction: column;
+}
+
+.time-slot {
+  /* ... */
+  height: 50px; /* or as tall as you want each time slot to be */
+  border-right: 1px solid #ddd; /* subtle border */
+}
+
+.calendar-days {
+  display: flex;
+  flex-direction: column;
+}
+
+.calendar-header, .calendar-content {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.calendar-header > div {
+  padding: 10px;
+  background-color: #5E2A84; /* The purple color from your design */
+  color: white;
+  font-weight: bold;
+  border-bottom: 1px solid #ddd;
+}
+
+.day-cell {
+  border-top: 1px solid #ddd; /* subtle border for the slots */
+  min-height: 40px; /* Match this to the .time-slot height */
+  width: 500px;
+}
+
+/* ... */

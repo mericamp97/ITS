@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Intelligent Travel Time Scheduler</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div id="desktop-1" class="desktop">
+  <div class="container">
+    <header>
+      <h1>Intelligent travel time scheduler</h1>
+    </header>
+    <p>Start planning your week's commutes: import your calendar</p>
+    <input type="file" id="calendarUpload" accept=".ics">
+    <button onclick="uploadCalendar()">Import calendar</button>
+  </div>
+</div>
+
+<div id="desktop-2" class="desktop" style="display:none;">
+  <div class="container">
+    <header>
+      <h1>YOUR CALENDAR</h1>
+    </header>
+    <div id="calendar"></div>
+    <div class="transportation-method">
+      <label>
+        <input type="radio" name="transport" value="car"> CAR
+      </label>
+      <label>
+        <input type="radio" name="transport" value="smrt"> SMRT
+      </label>
+    </div>
+    <button onclick="populateTrips()">Populate my trips</button>
+    <div id="error"></div>
+    <div class="spacing"></div> <!-- Adds spacing between button and calendar -->
+
+    <div class="calendar-container">
+        <div class="calendar-times">
+            <!-- Repeat for each time slot -->
+            <div class="time-slot"></div>
+            <div class="time-slot">9:00</div>
+            <div class="time-slot">10:00</div>
+            <div class="time-slot">11:00</div>
+            <div class="time-slot">12:00</div>
+            <div class="time-slot">13:00</div>
+            <div class="time-slot">14:00</div>
+            <div class="time-slot">15:00</div>
+            <div class="time-slot">16:00</div>
+            <div class="time-slot">17:00</div>
+            <div class="time-slot">18:00</div>
+            <div class="time-slot">19:00</div>
+            <!-- ... -->
+        </div>
+        <div class="calendar-days">
+            <div class="calendar-header">
+                <div>Mon</div>
+                <div>Tue</div>
+                <div>Wed</div>
+                <div>Thu</div>
+                <div>Fri</div>
+                <div>Sat</div>
+                <div>Sun</div>
+                <!-- ... -->
+            </div>
+            <div class="calendar-content">
+                <!-- Cells for each day and time slot -->
+                <div class="day-cell"></div>
+                <!-- ... -->
+            </div>
+        </div>
+    </div>
+         
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
