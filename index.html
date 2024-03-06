@@ -8,182 +8,110 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ical.js/1.4.0/ical.min.js"></script>
 </head>
 
+<!-- CLEANED CODE -->
+
 <body>
 
-<div id="desktop-1" class="desktop">
-  <div class="container">
-    <header>
-      <h1>Intelligent travel time scheduler</h1>
-    </header>
-    <p>Start planning your week's commutes: import your calendar</p>
-    <input type="file" id="calendarUpload" accept=".ics">
-    <button onclick="uploadCalendar()">Import calendar</button>
-  </div>
-</div>
-
-<div id="desktop-2" class="desktop" style="display:none;">
-  <div class="container">
-    <header>
-      <h1>YOUR CALENDAR</h1>
-    </header>
-    <div id="calendar"></div>
-    <div class="transportation-method">
-      <label>
-        <input type="radio" name="transport" value="car"> CAR
-      </label>
-      <label>
-        <input type="radio" name="transport" value="smrt"> SMRT
-      </label>
+    <div id="desktop-1" class="desktop">
+      <div class="container">
+        <header>
+          <h1>Intelligent travel time scheduler</h1>
+        </header>
+        <p>Start planning your week's commutes: import your calendar</p>
+        <input type="file" id="calendarUpload" accept=".ics">
+        <button onclick="uploadCalendar()">Import calendar</button>
+      </div>
     </div>
-    <div class="spacing"></div>
-    <button onclick="populateTrips()">Populate my trips</button>
-    <div class="spacing"></div>
-    <div id="trip-status" class="trip-status">
-        <img id="status-icon" src="icon_danger.png" alt="Status Icon" style="display: none; width: 20px; height: 20px;">
-        <span id="status-text" style="display: none;">0 late arrivals</span>
-      </div>      
-    <div class="spacing"></div>
-    <div id="error"></div>
-    <div class="spacing"></div> <!-- Adds spacing between button and calendar -->
-
-    <div class="calendar-container">
-        <div class="calendar-times">
-            <!-- Repeat for each time slot -->
-            <div class="time-slot"></div>
-            <div class="time-slot">9:00</div>
-            <div class="time-slot">10:00</div>
-            <div class="time-slot">11:00</div>
-            <div class="time-slot">12:00</div>
-            <div class="time-slot">13:00</div>
-            <div class="time-slot">14:00</div>
-            <div class="time-slot">15:00</div>
-            <div class="time-slot">16:00</div>
-            <div class="time-slot">17:00</div>
-            <div class="time-slot">18:00</div>
-            <div class="time-slot">19:00</div>
-            <!-- ... -->
+    
+    <div id="desktop-2" class="desktop" style="display:none;">
+      <div class="container">
+        <header>
+          <h1>YOUR CALENDAR</h1>
+        </header>
+        <div id="calendar"></div>
+        <div class="transportation-method">
+          <label><input type="radio" name="transport" value="car"> CAR</label>
+          <label><input type="radio" name="transport" value="smrt"> SMRT</label>
         </div>
-        <div class="calendar-days">
-            <div class="calendar-header">
-                <div>Mon</div>
-                <div>Tue</div>
-                <div>Wed</div>
-                <div>Thu</div>
-                <div>Fri</div>
-                <div>Sat</div>
-                <div>Sun</div>
+        <div class="spacing"></div>
+        <button onclick="populateTrips()">Populate my trips</button>
+        <div class="spacing"></div>
+        <div id="trip-status" class="trip-status">
+            <img id="status-icon" src="icon_danger.png" alt="Status Icon" style="display: none; width: 20px; height: 20px;">
+            <span id="status-text" style="display: none;">0 late arrivals</span>
+        </div>      
+        <div class="spacing"></div>
+        <div id="error"></div>
+        <div class="spacing"></div>
+    
+        <div class="calendar-container">
+            <div class="calendar-times">
+                <!-- Repeat for each time slot -->
+                <div class="time-slot"></div>
+                <div class="time-slot">9:00</div>
+                <div class="time-slot">10:00</div>
+                <div class="time-slot">11:00</div>
+                <div class="time-slot">12:00</div>
+                <div class="time-slot">13:00</div>
+                <div class="time-slot">14:00</div>
+                <div class="time-slot">15:00</div>
+                <div class="time-slot">16:00</div>
+                <div class="time-slot">17:00</div>
+                <div class="time-slot">18:00</div>
+                <div class="time-slot">19:00</div>
                 <!-- ... -->
             </div>
-            <div class="calendar-content">
-                <!-- Container for Monday -->
-                <div class="day">
-                  <div class="day-cell" data-day="monday" data-hour="9"></div>
-                  <div class="day-cell" data-day="monday" data-hour="10"></div>
-                  <div class="day-cell" data-day="monday" data-hour="11"></div>
-                    <div class="day-cell" data-day="monday" data-hour="12"></div>
-                    <div class="day-cell" data-day="monday" data-hour="13"></div>
-                    <div class="day-cell" data-day="monday" data-hour="14"></div>
-                    <div class="day-cell" data-day="monday" data-hour="15"></div>
-                    <div class="day-cell" data-day="monday" data-hour="16"></div>
-                    <div class="day-cell" data-day="monday" data-hour="17"></div>
-                    <div class="day-cell" data-day="monday" data-hour="18"></div>
-                    <div class="day-cell" data-day="monday" data-hour="19"></div>
+            <div class="calendar-days">
+                <div class="calendar-header">
+                    <div>Mon</div>
+                    <div>Tue</div>
+                    <div>Wed</div>
+                    <div>Thu</div>
+                    <div>Fri</div>
+                    <div>Sat</div>
+                    <div>Sun</div>
+                    <!-- ... -->
                 </div>
-                <!-- Container for Tuesday -->
-                <div class="day">
-                  <div class="day-cell" data-day="tuesday" data-hour="9"></div>
-                  <div class="day-cell" data-day="tuesday" data-hour="10"></div>
-                  <div class="day-cell" data-day="tuesday" data-hour="11"></div>
-                    <div class="day-cell" data-day="tuesday" data-hour="12"></div>
-                    <div class="day-cell" data-day="tuesday" data-hour="13"></div>
-                    <div class="day-cell" data-day="tuesday" data-hour="14"></div>
-                    <div class="day-cell" data-day="tuesday" data-hour="15"></div>
-                    <div class="day-cell" data-day="tuesday" data-hour="16"></div>
-                    <div class="day-cell" data-day="tuesday" data-hour="17"></div>
-                    <div class="day-cell" data-day="tuesday" data-hour="18"></div>
-                    <div class="day-cell" data-day="tuesday" data-hour="19"></div>
-                </div>
-                <!-- Container for Wednesday -->
-                <div class="day">
-                    <div class="day-cell" data-day="wednesday" data-hour="9"></div>
-                    <div class="day-cell" data-day="wednesday" data-hour="10"></div>
-                    <div class="day-cell" data-day="wednesday" data-hour="11"></div>
-                    <div class="day-cell" data-day="wednesday" data-hour="12"></div>
-                    <div class="day-cell" data-day="wednesday" data-hour="13"></div>
-                    <div class="day-cell" data-day="wednesday" data-hour="14"></div>
-                    <div class="day-cell" data-day="wednesday" data-hour="15"></div>
-                    <div class="day-cell" data-day="wednesday" data-hour="16"></div>
-                    <div class="day-cell" data-day="wednesday" data-hour="17"></div>
-                    <div class="day-cell" data-day="wednesday" data-hour="18"></div>
-                    <div class="day-cell" data-day="wednesday" data-hour="19"></div>                    
+                <div class="calendar-content">
+                    <!-- Container for Monday -->
+                    <div class="day">
+                      <div class="day-cell" data-day="monday" data-day="1"></div>
+                    </div>
+                    <!-- Container for Tuesday -->
+                    <div class="day">
+                      <div class="day-cell" data-day="tuesday" data-day="2"></div>
+                    </div>
+                    <!-- Container for Wednesday -->
+                    <div class="day">
+                        <div class="day-cell" data-day="wednesday" data-day="3"></div>              
+                      </div>
+    
+                    <!-- Container for Thursday -->
+                    <div class="day">
+                        <div class="day-cell" data-day="thursday" data-day="4"></div>                               
+                      </div>  
+                    <!-- Container for Friday -->
+                    <div class="day">
+                        <div class="day-cell" data-day="friday" data-day="5"></div>                                                      
+                      </div>           
+                    <!-- Container for Saturday -->
+                    <div class="day">
+                        <div class="day-cell" data-day="saturday" data-day="6"></div>                                                  
+                      </div>   
+                    <!-- Container for Sunday -->
+                    <div class="day">
+                        <div class="day-cell" data-day="sunday" data-day="0"></div>
+                                                                             
+                      </div>                                             
+                    <!-- ... Repeat containers for the rest of the days ... -->
                   </div>
-
-                <!-- Container for Thursday -->
-                <div class="day">
-                    <div class="day-cell" data-day="thursday" data-hour="9"></div>
-                    <div class="day-cell" data-day="thursday" data-hour="10"></div>
-                    <div class="day-cell" data-day="thursday" data-hour="11"></div>
-                    <div class="day-cell" data-day="thursday" data-hour="12"></div>
-                    <div class="day-cell" data-day="thursday" data-hour="13"></div>
-                    <div class="day-cell" data-day="thursday" data-hour="14"></div>
-                    <div class="day-cell" data-day="thursday" data-hour="15"></div>
-                    <div class="day-cell" data-day="thursday" data-hour="16"></div>
-                    <div class="day-cell" data-day="thursday" data-hour="17"></div>
-                    <div class="day-cell" data-day="thursday" data-hour="18"></div>
-                    <div class="day-cell" data-day="thursday" data-hour="19"></div>                                       
-                  </div>  
-                <!-- Container for Friday -->
-                <div class="day">
-                    <div class="day-cell" data-day="friday" data-hour="9"></div>
-                    <div class="day-cell" data-day="friday" data-hour="10"></div>
-                    <div class="day-cell" data-day="friday" data-hour="11"></div>
-                    <div class="day-cell" data-day="friday" data-hour="12"></div>
-                    <div class="day-cell" data-day="friday" data-hour="13"></div>
-                    <div class="day-cell" data-day="friday" data-hour="14"></div>
-                    <div class="day-cell" data-day="friday" data-hour="15"></div>
-                    <div class="day-cell" data-day="friday" data-hour="16"></div>
-                    <div class="day-cell" data-day="friday" data-hour="17"></div>
-                    <div class="day-cell" data-day="friday" data-hour="18"></div>
-                    <div class="day-cell" data-day="friday" data-hour="19"></div>                                                           
-                  </div>           
-                <!-- Container for Saturday -->
-                <div class="day">
-                    <div class="day-cell" data-day="saturday" data-hour="9"></div>
-                    <div class="day-cell" data-day="saturday" data-hour="10"></div>
-                    <div class="day-cell" data-day="saturday" data-hour="11"></div>
-                    <div class="day-cell" data-day="saturday" data-hour="12"></div>
-                    <div class="day-cell" data-day="saturday" data-hour="13"></div>
-                    <div class="day-cell" data-day="saturday" data-hour="14"></div>
-                    <div class="day-cell" data-day="saturday" data-hour="15"></div>
-                    <div class="day-cell" data-day="saturday" data-hour="16"></div>
-                    <div class="day-cell" data-day="saturday" data-hour="17"></div>
-                    <div class="day-cell" data-day="saturday" data-hour="18"></div>
-                    <div class="day-cell" data-day="saturday" data-hour="19"></div>                                                       
-                  </div>   
-                <!-- Container for Sunday -->
-                <div class="day">
-                    <div class="day-cell" data-day="sunday" data-hour="9"></div>
-                    <div class="day-cell" data-day="sunday" data-hour="10"></div>
-                    <div class="day-cell" data-day="sunday" data-hour="11"></div>
-                    <div class="day-cell" data-day="sunday" data-hour="12"></div>
-                    <div class="day-cell" data-day="sunday" data-hour="13"></div>
-                    <div class="day-cell" data-day="sunday" data-hour="14"></div>
-                    <div class="day-cell" data-day="sunday" data-hour="15"></div>
-                    <div class="day-cell" data-day="sunday" data-hour="16"></div>
-                    <div class="day-cell" data-day="sunday" data-hour="17"></div>
-                    <div class="day-cell" data-day="sunday" data-hour="18"></div>
-                    <div class="day-cell" data-day="sunday" data-hour="19"></div>
-                                                                         
-                  </div>                                             
-                <!-- ... Repeat containers for the rest of the days ... -->
-              </div>
-              
-        </div>
+                  
+            </div>
+      </div> <!-- This closes the desktop-2 container -->
     </div>
-         
-  </div>
-</div>
+    
+    <script src="script.js"></script>
+    </body>
+    
 
-<script src="script.js"></script>
-</body>
 </html>
