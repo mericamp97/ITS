@@ -19,7 +19,7 @@
         </header>
         <p>Start planning your week's commutes: import your calendar</p>
         <input type="file" id="calendarUpload" accept=".ics">
-        <button onclick="uploadCalendar()">Import calendar</button>
+        <button id="importButton">Import calendar</button>
       </div>
     </div>
     
@@ -34,7 +34,7 @@
           <label><input type="radio" name="transport" value="smrt"> SMRT</label>
         </div>
         <div class="spacing"></div>
-        <button onclick="populateTrips()">Populate my trips</button>
+        <button id="populateButton">Populate my trips</button>
         <div class="spacing"></div>
         <div id="trip-status" class="trip-status">
             <img id="status-icon" src="icon_danger.png" alt="Status Icon" style="display: none; width: 20px; height: 20px;">
@@ -48,6 +48,9 @@
             <div class="calendar-times">
                 <!-- Repeat for each time slot -->
                 <div class="time-slot"></div>
+                <div class="time-slot">6:00</div>
+                <div class="time-slot">7:00</div>
+                <div class="time-slot">8:00</div>
                 <div class="time-slot">9:00</div>
                 <div class="time-slot">10:00</div>
                 <div class="time-slot">11:00</div>
@@ -59,6 +62,10 @@
                 <div class="time-slot">17:00</div>
                 <div class="time-slot">18:00</div>
                 <div class="time-slot">19:00</div>
+                <div class="time-slot">20:00</div>
+                <div class="time-slot">21:00</div>
+                <div class="time-slot">22:00</div>
+                <div class="time-slot">23:00</div>
                 <!-- ... -->
             </div>
             <div class="calendar-days">
@@ -75,32 +82,32 @@
                 <div class="calendar-content">
                     <!-- Container for Monday -->
                     <div class="day">
-                      <div class="day-cell" data-day="monday" data-day="1"></div>
+                      <div class="day-cell" data-day="1"></div>
                     </div>
                     <!-- Container for Tuesday -->
                     <div class="day">
-                      <div class="day-cell" data-day="tuesday" data-day="2"></div>
+                      <div class="day-cell" data-day="2"></div>
                     </div>
                     <!-- Container for Wednesday -->
                     <div class="day">
-                        <div class="day-cell" data-day="wednesday" data-day="3"></div>              
+                        <div class="day-cell" data-day="3"></div>              
                       </div>
     
                     <!-- Container for Thursday -->
                     <div class="day">
-                        <div class="day-cell" data-day="thursday" data-day="4"></div>                               
+                        <div class="day-cell" data-day="4"></div>                               
                       </div>  
                     <!-- Container for Friday -->
                     <div class="day">
-                        <div class="day-cell" data-day="friday" data-day="5"></div>                                                      
+                        <div class="day-cell" data-day="5"></div>                                                      
                       </div>           
                     <!-- Container for Saturday -->
                     <div class="day">
-                        <div class="day-cell" data-day="saturday" data-day="6"></div>                                                  
+                        <div class="day-cell" data-day="6"></div>                                                  
                       </div>   
                     <!-- Container for Sunday -->
                     <div class="day">
-                        <div class="day-cell" data-day="sunday" data-day="0"></div>
+                        <div class="day-cell" data-day="0"></div>
                                                                              
                       </div>                                             
                     <!-- ... Repeat containers for the rest of the days ... -->

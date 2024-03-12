@@ -93,8 +93,9 @@ body, html {
 }
 
 .day-cell {
+  position: relative;
   border: 1px solid #7a5a83; /* subtle border for the slots */
-  min-height: 550px; /* Match this to the .time-slot height */
+  min-height: 900px; /* Match this to the .time-slot height 50 x 18 hours*/
   min-width: 100px;
 }
 
@@ -105,7 +106,7 @@ body, html {
   left: 0; /* Align the event to the left side of the .day container */
   right: 0; /* Align the event to the right side of the .day container */
   background-color: #add8e6; /* A light blue background for the event */
-  width: calc(100% - 1px); /* -2px accounts for margins */
+  width: calc(100% - 1px); /* Take up the full width minus the border */
   border-left: 5px solid #5E2A84; /* A thick left border for visual prominence */
   color: #333; /* Dark text for readability */
   padding: 4px 8px; /* Spacing inside the event box */
@@ -117,6 +118,7 @@ body, html {
   white-space: nowrap; /* Keeps the event text on one line */
   text-overflow: ellipsis; /* Adds an ellipsis if the text is too long */
 }
+
 
 
  /* ..ALARM FOR LATE ARRIVALS.. */
