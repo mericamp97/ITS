@@ -1,12 +1,27 @@
 // Declare jsonEvents at the top level so it's accessible to other functions
 let jsonEvents = [];
-
+var calendarId =  "testCalendar1";
+var userId = "testUser1";
 
 
 //document.addEventListener('DOMContentLoaded', function() {
 //  document.getElementById('importButton').addEventListener('click', uploadCalendar);
  // document.getElementById('populateButton').addEventListener('click', populateTrips);
 //});
+
+//GET request to dynamoDB
+// fetch('https://dy6i1yjyh6.execute-api.us-east-1.amazonaws.com/ITS/calendar/' + calendarId, { // Replace with the calendarID to call
+// method: 'GET', 
+// headers: {
+//   'Content-Type': 'application/json',
+// }
+// })
+// .then((response) => response.text())
+// .then((data) => {
+// console.log(JSON.parse(data));
+// })
+// .catch((error) => console.error(error));
+
 
 document.addEventListener('DOMContentLoaded', function() {
   const importButton = document.getElementById('importButton');
@@ -55,6 +70,34 @@ function uploadCalendar() {
               endDate: icalEvent.endDate.toString()
               // You can add more properties as needed
             };
+          });
+
+          // Create a data object to send to the API
+          data = {
+            "calendarId": calendarId,
+            "userId": userId,
+            "content": jsonEvents
+          }
+
+          //Send data to DynamoDB through API
+          fetch('https://dy6i1yjyh6.execute-api.us-east-1.amazonaws.com/ITS/calendar', {
+            method: 'POST', 
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data),
+          })
+          .then(response => {
+            if (!response.ok) {
+              throw new Error('Network response was not ok');
+            }
+            return response.json();
+          })
+          .then(data => {
+            console.log(data);
+          })
+          .catch(error => {
+            console.error('There was a problem with your fetch operation:', error);
           });
 
           console.log(jsonEvents); // Log the JSON array of events
