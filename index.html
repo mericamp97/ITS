@@ -6,6 +6,10 @@
 <title>Intelligent Travel Time Scheduler</title>
 <link rel="stylesheet" href="styles.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/ical.js/1.4.0/ical.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.38/moment-timezone-with-data.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.3.2/uuid.min.js"></script>
+
 </head>
 
 <!-- CLEANED CODE -->
@@ -39,7 +43,8 @@
         <div id="trip-status" class="trip-status">
             <img id="status-icon" src="icon_danger.png" alt="Status Icon" style="display: none; width: 20px; height: 20px;">
             <span id="status-text" style="display: none;">0 late arrivals</span>
-        </div>      
+        </div>
+        <button id="exportButton">Export my calendar</button>      
         <div class="spacing"></div>
         <div id="error"></div>
         <div class="spacing"></div>
